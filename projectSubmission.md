@@ -7,7 +7,7 @@ The high-level business objective is to reduce the number of students who leave 
 ###Metric Choice
 The logic flow of the experiment and control is below: 
 
-![](logicFlow.png)
+![](logicFlowOne.png)
  
 In the experiment, a user clicks on "Start Free Trail," and then is asked about their time commitment.  In the control, a user is not asked about their time commitment.  The metrics, their classifications, and a short justification for their classifications are below:
 
