@@ -16,15 +16,15 @@ For each metric, explain both why you did or did not use it as an invariant metr
 
 The high-level business objective is to reduce the number of frustrated students who leave the free trial, while preserving the number of students who continue to complete the certificate program.  The metrics, their classifications, their reference location on the logic flow diagram, and a short justification for their classifications are below:
 
-|Metric|Classification|Reference| Justification|
-:--- | :--- | :--- | 
-Number of Cookies| Invariant| 0 | No change to course overview page
-Number of User-Ids | Not invariant  | 3 | Not directly evaulated but not invariant
-Number of Clicks | Invariant |1 |No change to course overview page
-Click-Through Probability |Invariant | 2/0|No change to course overview page
-Gross Conversion | Evaluation | 3/1 |Expected change due to time commitment questioning
-Retention | Evaluation | 4/3| Expected change due to decrease in frustrated students and retention of students who complete certificate
-Net Conversion | Evaluation | 4/1 |Expected change due to decrease in frustrated students and retention of students who complete certificate
+|Metric|Classification|Justification|
+:--- | :--- | :---
+Number of Cookies| Invariant| No change to course overview page
+Number of User-Ids | Not invariant  | Not directly evaulated but not invariant
+Number of Clicks | Invariant |No change to course overview page
+Click-Through Probability |Invariant |No change to course overview page
+Gross Conversion | Evaluation |Expected change due to time commitment questioning
+Retention | Evaluation | Expected change due to decrease in frustrated students and retention of students who complete certificate
+Net Conversion | Evaluation | Expected change due to decrease in frustrated students and retention of students who complete certificate
 
 No user  will be warned of time requirements at the course overview page.  Therefore, the metrics from the course overview page will not change.  The metrics from the course overview page are the number of cookies, the number of clicks, and the click-through probability (CTP), which is the number of clicks over the number of cookies.  These metrics will be used as sanity checks later. 
 
