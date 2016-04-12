@@ -112,4 +112,4 @@ To assess the number of frustrated students who cancel early in the course, the 
 
 ![](logicFlowFollowOn.png)
 
-The unit of diversion would be users-ids.  The definition of my metrics are above.  My reasoning for ratio one is to see whether students leave at a higher rate due to not committing 5 hours per week; my reasoning for ratio two is to see whether students leave at a higher rate due to duration requirements.  Depending on the results, a follow-on-follow-on test would be to see whether perhaps the duration requirement of 14 days is enough.   
+The unit of diversion would be users-ids.  The definition of my metrics are above.  My reasoning for ratio one is to see whether students leave at a higher rate due to not committing 5 hours per week; my reasoning for ratio two is to see whether students leave at a higher rate due to duration requirements.  Depending on the results, a follow-up-follow-up test would be to see whether perhaps the duration requirement of 14 days is enough.   
