@@ -7,9 +7,9 @@ The high-level business objective is to reduce the number of students who leave 
 ###Metric Choice
 The logic flow of the experiment and control is below: 
 
-![](logicFlowOne.png)
+![](logicFlowTwo.png)
  
-In the experiment, a user clicks on "Start Free Trail," and then is asked about their time commitment.  In the control, a user is not asked about their time commitment.  The metrics, their classifications, and a short justification for their classifications are below:
+In the experiment, a user clicks on "Start Free Trial," and then is asked about her or his time commitment.  In the control, a user is not asked about her or his time commitment.  The metrics, their classifications, and a short justification for their classifications are below:
 
 |Metric|Classification|Justification|
 :--- | :--- | :---
@@ -23,7 +23,7 @@ Net Conversion | Evaluation | Expected change due to decrease in frustrated stud
 
 No user  will be warned of time requirements at the course overview page.  Therefore, the metrics from the course overview page will not change.  The metrics from the course overview page are the number of cookies, the number of clicks, and the click-through probability (CTP), which is the number of clicks over the number of cookies.  These invariant metrics will be used as sanity checks. 
 
-Depending on whether the user is diverted to the control or the experiment, the number of users-ids, those users who enroll, could change.  The number of user-ids is not an invariant because it could change;  however, it is not a direct evaluation metric because it is rolled-up into other evaluation metrics and it does not directly measure the number of frustrated students or the number of students who complete the certification.  Similarly, the gross conversion and the retention that are dependent on the number of user-ids, are also subject to change depending on whether the experiment has a change on the behavior of frustrated students.  Net conversion could change as well if the  experiment  pre-screens for students who are more likely to complete the certificate program. 
+Depending on whether the user is diverted to the control or the experiment, the number of users-ids, those users who enroll, could change.  The number of user-ids is not an invariant because it could change;  however, it is not a direct evaluation metric because it is rolled-up into other evaluation metrics and it does not directly measure the number of frustrated students or the number of students who complete the certification.  Similarly, gross conversion and retention that are dependent on the number of user-ids are also subject to change depending on whether the experiment has a change on the behavior of frustrated students.  Net conversion could change as well if the  experiment  pre-screens for students who are more likely to complete the certificate program. 
 
 The results that I will be on the look out for in order to launch the experiment are whether the experiment has an effect on decreasing the number of frustrated students while retaining the number of students who complete the certificate.  These can be determined by the metrics gross conversion, retention, and net conversion.  
 
@@ -33,7 +33,7 @@ A decrease in enrollments per clicks by itself would tell you that the warning m
  
 ##Measuring Standard Deviation
 
-A rule of thumb that is that analytical estimates tend to underestimate variability.  Therefore, it is not surprising that analytical estimates would be smaller than an empirical estimates.  The table below shows the analytical estimate of variability and the coarse estimates of standard deviation of the control and the experiment.  The empirical coarse estimates are greater than the analytical estimates.  The empirical variability was not calculated with A/A tests.  The coarse estimates below are not used for calculations.  They are simply here to compare magnitudes.   
+A rule of thumb that is that analytical estimates tend to underestimate variability.  Therefore, it is not surprising that analytical estimates would be smaller than empirical estimates.  The table below shows the analytical estimate of variability and the coarse estimates of standard deviation of the control and the experiment.  The empirical coarse estimates are greater than the analytical estimates.  The empirical variability was not calculated with A/A tests.  The coarse estimates below are not used for calculations.  They are simply here to compare magnitudes.   
 
 |Metric|Estimated Standard Deviation| Observed Standard Deviation - Control | Observed Standard Deviation - Experiment  
 :--- | :---: | :---: | :--: |
@@ -64,7 +64,7 @@ Number of Pageviews | Duration (Days)
 :--- | :---: | :---: | 
 |685325 |  35 |
 
-The data for the control and experiment were for 37 days. 
+The duration for the control and experiment were 37 days. 
 
 ##Experiment Analysis
 ###Sanity Checks
@@ -84,8 +84,7 @@ Metric|Lower Bound |Upper Bound| Statistically Significant?| Practically Signifi
 Gross Conversion| -0.0291| -0.0120 | Y | Y
 Net Conversion | -0.0116| 0.0019| N |N
 
-Gross Conversion is statistically significant because the confidence interval [-0.0291,-0.0120] **does not** include zero.  The difference between the experiment and control are statistically significant. 
- Gross Conversion is practically significant because the confidence interval above **does not** include the practical significance boundary 0.01.  An assurance exists that the confidence interval is below the practical significance boundary.  The results display a decrease in enrollments per clicks.       
+Gross Conversion is statistically significant because the confidence interval [-0.0291,-0.0120] **does not** include zero.  The difference between the experiment and control are statistically significant. Gross Conversion is practically significant because the confidence interval above **does not** include the practical significance boundary 0.01.  An assurance exists that the confidence interval is below the practical significance boundary.  The results display a decrease in enrollments per clicks.       
 
 Net Conversion is **not** statistically significant because the the confidence interval [-0.0116, 0.0019] includes zero.  Net Conversion is not practically significant since Net Conversion is not statistically significant.  Net Conversion is **not** practically significant, though the confidence interval [-0.0116, 0.0019] **does not** contains the practical significance boundary 0.0075.  An assurance exists that the CI is below the practical significance level.  The number of payments per click has not definitively changed from the experiment and the control. 
 
@@ -109,11 +108,7 @@ The goal was to reduce the number of frustrated students and maintain students w
 The evaluation metric Retention didn't have enough conversational statistical power to be assessed in this experiment.   Increasing alpha, decreasing beta, and increasing the practical significance would decrease the number of pageviews needed and but would produce less rigorous results that would be prone to detecting effects that do not exist.  The only way Retention as defined in this experiment could be assessed is to increase the duration of the experiment.  Assessing Retention could potentially give insight into whether or not the overall experience is better, which may be out of scope for this experiment due to duration requirements.  If the experience is better then students who are enrolled would make payments at a higher rate.        
 
 ###Follow-Up Experiment
-Give a high-level description of the follow up experiment you would run, what your hypothesis would be, what metrics you would want to measure, what your unit of diversion would be, and your reasoning for these choices.
-
-If you wanted to reduce the number of frustrated students who cancel early in the course, what experiment would you try? Give a brief description of the change you would make, what your hypothesis would be about the effect of the change, what metrics you would want to measure, and what unit of diversion you would use. Include an explanation of each of your choices.
-
-To assess the number of frustrated students who cancel early in the course, the experiment that I would try is to warn the students who have enrolled and have not exceed 5hrs of log-in time per week, whether they wanted to continue with the free trial, and then again re-warn the student on day 13 of the trail whether they wanted to continue with the free trail which ends the next day.  My hypothesis is that the those students who have not exceeded 5 hours/week on the free trail will most likely leave the trail decreasing their classification as frustrated.  Similarly, my hypothesis is that those who are close to the end of their trail will have made a decision as to continue with signing up for certificate program or not on day 13.  Thus, a frustrated student will not be charged.  The logic flow that I am considering is below: 
+To assess the number of frustrated students who cancel early in the course, the experiment that I would try is to warn the students who have enrolled and have not exceed 5hrs of log-in time per week, whether they wanted to continue with the free trial, and then again re-warn the student on day 13 of the trial whether they wanted to continue with the free trial which ends the next day.  My hypothesis is that the those students who have not exceeded 5 hours/week on the free trial will most likely leave the trial decreasing their classification as frustrated.  Similarly, my hypothesis is that those who are close to the end of their trial will have made a decision as to continue with signing up for certificate program or not on day 13.  Thus, a frustrated student will not be charged.  The logic flow that I am considering is below: 
 
 ![](logicFlowFollowOn.png)
 
