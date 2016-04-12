@@ -64,7 +64,7 @@ Number of Pageviews | Duration (Days)
 :--- | :---: | :---: | 
 |685325 |  35 |
 
-The duration for the control and experiment were 37 days. 
+The durations for the control and experiment were 37 days. 
 
 ##Experiment Analysis
 ###Sanity Checks
