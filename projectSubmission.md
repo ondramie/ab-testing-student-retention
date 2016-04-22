@@ -113,7 +113,7 @@ To assess the number of frustrated students who cancel early in the course, the 
 The unit of diversion would be users-ids.  The definition of my metrics are above.  My reasoning for ratio one is to see whether students leave at a higher rate due to not committing 5 hours per week; my reasoning for ratio two is to see whether students leave at a higher rate due to duration requirements.  Depending on the results, a follow-up test would be to see whether perhaps the duration requirement of 14 days is enough.   
 
 ###References
-<a name="myfootnote1">1 </a>:  http://bit.ly/1VH3R3u
-<a name="myfootnote2">2 </a>:  http://www.stat.berkeley.edu/~mgoldman/Section0402.pdf
-<a name="myfootnote3">3 </a>:  http://www.utdallas.edu/~herve/Abdi-Bonferroni2007-pretty.pdf
-<a name="myfootnote4">4 </a>:  https://en.wikipedia.org/wiki/Negroni
++ <a name="myfootnote1">1 </a>:  http://bit.ly/1VH3R3u
++ <a name="myfootnote2">2 </a>:  http://www.stat.berkeley.edu/~mgoldman/Section0402.pdf
++ <a name="myfootnote3">3 </a>:  http://www.utdallas.edu/~herve/Abdi-Bonferroni2007-pretty.pdf
++ <a name="myfootnote4">4 </a>:  https://en.wikipedia.org/wiki/Negroni
