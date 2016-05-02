@@ -5,7 +5,9 @@ This document discusses an A/B test experiment that ran on the Udacity website i
 The high-level business objective is to **reduce** the number of students who leave the free trial, while **not reducing** the number of students who continue to complete the certificate program.  The hypothesis tests are:
 
 $H_o : \hat{d} = 0 =  \hat{p}_e- \hat{p}_c $
+
 $H_a: \hat{d} \neq 0 =  \hat{p}_e- \hat{p}_c $  
+
 
 <img src="http://bit.ly/24uy0Vw" align="center" border="0" alt="$H_o : \hat{d} = 0 =  \hat{p}_e- \hat{p}_c  \\ H_a: \hat{d} \neq 0 =  \hat{p}_e- \hat{p}_c $" width="168" height="68" />
 
@@ -85,7 +87,9 @@ The sanity checks had these assumptions: (1) binomial distribution (p = 0.5, q =
 
 $$ SE = \sqrt{\frac{p*q}{N_c+N_E}} $$  
 
-<img src="http://bit.ly/1NiHtLk" align="center" border="0" alt="$$ SE = \sqrt{\frac{p*q}{N_c+N_E}} $$ " width="108" height="40" />
+<img src="http://bit.ly/1NiHtLk" align="center" border="0" alt="$$ SE = \sqrt{\frac{p*q}{N_c+N_E}} $$ " width="216" height="80" />
+
+![img](http://bit.ly/1NiHtLk)
 
 The observed values below are from the control group.  They are within the 95% confidence interval of an analytical estimate of 0.5.        
 
@@ -139,6 +143,9 @@ To assess the number of frustrated students who cancel early in the course, the 
 The unit of diversion would be users-ids.  The definition of my metrics are above.  My reasoning for ratio one is to see whether students leave at a higher rate due to not committing 5 hours per week; my reasoning for ratio two is to see whether students leave at a higher rate due to duration requirements.  Depending on the results, a follow-up test would be to see whether perhaps the duration requirement of 14 days is enough.   
 
 ###References
+
 <a name="myfootnote1">1 </a>:  http://bit.ly/1VH3R3u
+
 <a name="myfootnote2">2 </a>:  http://www.stat.berkeley.edu/~mgoldman/Section0402.pdf
+
 <a name="myfootnote3">3 </a>:  http://www.utdallas.edu/~herve/Abdi-Bonferroni2007-pretty.pdf
