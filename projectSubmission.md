@@ -1,8 +1,13 @@
 ##Experiment Design
 ### Overview 
-This document discusses an A/B test experiment that ran on the Udacity website in which the user was asked whether she or he had enough time to commit 5 hours per week to coursework.  The hope is that users will understand the time commitment required before embarking on a free trial that lasts 14 days.  After 14 days, they will be charged as a student enrolled in a certificate program at $199/month. 
+This document discusses an A/B test experiment that ran on the Udacity website in which the user was asked whether she or he had enough time to commit 5 hours per week to coursework.  The hope is that users will understand the time commitment required before embarking on a free trial that lasts 14 days.  After 14 days, he or she will be charged as a student who is enrolled in the certificate program at $199/month. 
 
-The high-level business objective is to **reduce** the number of students who leave the free trial, while **not reducing** the number of students who continue to complete the certificate program.
+The high-level business objective is to **reduce** the number of students who leave the free trial, while **not reducing** the number of students who continue to complete the certificate program.  The hypothesis tests are:
+
+$H_o : \hat{d} = 0 =  \hat{p}_e- \hat{p}_c $
+$H_a: \hat{d} \neq 0 =  \hat{p}_e- \hat{p}_c $  
+
+<img src="http://bit.ly/24uy0Vw" align="center" border="0" alt="$H_o : \hat{d} = 0 =  \hat{p}_e- \hat{p}_c  \\ H_a: \hat{d} \neq 0 =  \hat{p}_e- \hat{p}_c $" width="168" height="68" />
 
 ###Metric Choice
 The logic flow of the experiment and control is below: 
@@ -33,7 +38,7 @@ A decrease in enrollments per clicks by itself would tell you that the time comm
  
 ##Measuring Standard Deviation
 
-The analytical estimations of variance for gross and net conversion will suffice since the unit of analysis and the unit of diversion are the same: a cookie -- whereas the analytical estimation of variance for retention will underestimate since the unit of analysis and diversion are not the same: a user-id and a cookie, respectively<sup>[1](#myfootnote1)</sup>.  Retention variability should be estimated empirically, though A/A testing data for retention was not provided.  A coarse estimate based on available data was not advised.   Below is a table of the  analytical estimates.      
+The analytical estimations of variance for gross and net conversion will suffice since the unit of analysis and the unit of diversion are the same: a cookie -- whereas the analytical estimation of variance for retention will underestimate since the unit of analysis and diversion are not the same: a user-id and a cookie, respectively<sup>[1](#myfootnote1)</sup>.  Retention variability should be estimated empirically.  An empirical estimation of variance can be accomplished through A/A testing.  No A/A testing data was provided.  A coarse estimate based on available data was not advised.   Below is a table of the  analytical estimates.      
 
 |Metric|Analytical Standard Deviation| 
 :--- | :---: | :---: | :--: |
@@ -43,7 +48,9 @@ Net Conversion | 0.0156 |
 
 ##Sizing
 ###Number of Samples vs. Power
-The Bonferroni correction is used when running multiple tests simultaneously; it is used to reduce the likelihood of a false positive from a family of tests<sup>[2](#myfootnote2)</sup>.  I didn't apply the Bonferroni correction to the significance level.  My reasoning is based on my business objectives.  The Bonferroni does not assume independence<sup>[3](#myfootnote3)</sup>.  Gross and net conversion are not independent based on a one-way ANOVA and a Pearson's Chi-Square Test.  My business objectives require that both of my hypotheses have significance, not one of them. 
+The Bonferroni correction is used when running multiple tests simultaneously; it is used to reduce the likelihood of a false positive from a family of tests<sup>[2](#myfootnote2)</sup>.  I didn't apply the Bonferroni correction to the significance level (alpha = 0.05).  
+
+My reasoning is based on my business objectives.  The Bonferroni does not assume independence<sup>[3](#myfootnote3)</sup>.  Gross and net conversion are not independent based on a one-way ANOVA (R-squared = 0.43) and a Pearson's Chi-Square Test (p-value = 0.236).   My business objectives require that both of my hypotheses have significance, not one of them. 
 
 If I were to applying the Bonferroni, I would decrease the significance level of each evaluation metric to ~0.05/2 = 0.025 or ~0.05/3, depending on which evaluation metrics (2 or 3) I ultimately ended up choosing.  For completion purposes, the numbers of pageviews required with the Bonferroni are below in the table.  Increasing the significance threshold of each metric would decrease the number of false positives (type I) and increase the number of false negatives (type II).    
  
@@ -56,16 +63,31 @@ Net Conversion | 685325 | 875400 |
 The table above displays the number of pageviews needed in order to power the experiment appropriately.  The evaluation metric retention was dropped since it would lead to a number of pageviews that would not support a reasonable duration, assuming no change to the practical significance levels, alpha, or beta.    
 
 ##Duration vs. Exposure
-I chose to divert traffic by 50%.   The diversion allows an adequate sample of the spread across multiple weeks to reduce day-by-day, or week-by-week variation.  If I were to diverted traffic by 100%, the sample may have picked up anomalous behavior on a weekend or weekday due to a holiday or event.  The risk to divert traffic is minimal per first principles.  The users will not be exposed to physical, psychological and emotional, social, and economic concerns.  
+The experiment lasted 37 days,  spanning from 10/11 to 11/26.  Since the free trial lasts 14 days, the available data are reduced to 23 days, spanning from 10/11 to 11/2.  The experiment was ran at 100%.  
 
-Number of Pageviews | Duration (Days)  
+No information was given about other Udacity experiments.  No information was given about the required business rhythm turnaround.  The assumptions were: 
+
+1. no other experiments are running 
+2. the fastest turnaround is required
+3. day-to-day, week-to-week, or weekend variation is not a concern  
+
+The risk to divert traffic is minimal per first principles.  The users will not be exposed to physical, psychological and emotional, social, and economic concerns.  The table below displays the estimated duration based on the required number or pageviews. 
+
+Number of Pageviews | Estimated Duration (Days)  
 :--- | :---: | :---: | 
-|685325 |  35 |
+|685325 |  18 |
 
-The durations for the control and experiment were 37 days. 
 
 ##Experiment Analysis
 ###Sanity Checks
+
+The sanity checks had these assumptions: (1) binomial distribution (p = 0.5, q = 0.5); and (2) central limit theorem Z-score  of 1.96.  The standard error was calculated: 
+
+$$ SE = \sqrt{\frac{p*q}{N_c+N_E}} $$  
+
+<img src="http://bit.ly/1NiHtLk" align="center" border="0" alt="$$ SE = \sqrt{\frac{p*q}{N_c+N_E}} $$ " width="108" height="40" />
+
+The observed values below are from the control group.  They are within the 95% confidence interval of an analytical estimate of 0.5.        
 
 |Metric|Lower Bound |Upper Bound| Observed| Passes?
 :--- | :---: | :---: | :---: | :---: |
@@ -73,35 +95,39 @@ Number of Cookies| 0.4988| 0.5012 | 0.5006 | Y
 Number of Clicks | 0.4959| 0.5041| 0.5005 |Y
 Click-Through Probability | 0.0812| 0.0830 | 0.0822|Y
 
-The invariant metrics are sane. 
-
 ##Result Analysis
 ###Effect Size Tests
-Metric|Lower Bound |Upper Bound| Statistically Significant?| Practically Significant?|
-:--- | :---: | :---: | :--- | :---
-Gross Conversion| -0.0291| -0.0120 | Y | Y
-Net Conversion | -0.0116| 0.0019| N |N
+Metric|Lower Bound |Upper Bound| Statistical Significance Boundary | Statistically Significant?| Practical Significance Boundary| Practically Significant?
+:--- | :---: | :---: | :---: | :---: | :-: | :--:
+Gross Conversion| -0.0291| -0.0120 | 0 |Y| +/- 0.01 | Y
+Net Conversion | -0.0116| 0.0019| 0| N| +/- 0.0075|N
 
 Gross Conversion is statistically significant because the confidence interval [-0.0291,-0.0120] **does not** include zero.  The difference between the experiment and control are statistically significant. Gross Conversion is practically significant because the confidence interval above **does not** include the practical significance boundary 0.01.  An assurance exists that the confidence interval is below the practical significance boundary.  The results display a decrease in enrollments per clicks.       
 
-Net Conversion is **not** statistically significant because the the confidence interval [-0.0116, 0.0019] includes zero.  Net Conversion is not practically significant since net conversion is not statistically significant.  Net Conversion is **not** practically significant because the confidence interval [-0.0116, 0.0019] **does** include the practical significance boundary 0.0075.  The number of payments per click has not definitively changed from the experiment and the control. 
+Net Conversion is **not** statistically significant because the the confidence interval [-0.0116, 0.0019] includes zero.  Net Conversion is not practically significant since net conversion is not statistically significant.  Net Conversion is **not** practically significant because the confidence interval [-0.0116, 0.0019] **does** include the practical significance boundary -0.0075.  The number of payments per click has not definitively changed from the experiment and the control. 
 
 ###Sign Tests
+The sign test is used to measure the likelihood of consistent differences between a pair of observations.  It assumes the probability distribution of the binomial (success/failure).  It is used here to corroborate the findings of whether a statistical significant difference was observed.  For gross conversion, four days out of twenty-three days had an experiment greater than the control.  For net conversion, ten days out of twenty-three days had an experiment greater than the control.  Assuming an equal likelihood of success or failure (50%) and an alpha of 0.05, the p-values for gross and net conversion are below: 
+
 Metric| p-value| Statistically Significant?|
 :--- | :--- | :---: 
 Gross Conversion| 0.0026|  Y 
 Net Conversion | 0.6776| N
 
+A  p-value of 0.0026 is the likelihood of observing four or fewer success or days in which the difference between the experiment was greater than the control.  This is a low likelihood that this occurred by chance.  On the other hand of the spectrum, a  p-value of 0.6776 is the likelihood of observing 10 or fewer success or days in which the difference between the experiment was greater than the control.  This is highly likely and chance cannot be ruled out.  These results corroborate with the findings above in the effect size section.
+
 ###Summary
-I didn't use the Bonferroni.  My justification was based on my business objectives.  My business objective didn't require the rejection of the null of one of my hypotheses tests to be sufficient in order to reject the null from the family of hypotheses tests.  Sheesh! All these Bonferroni(s) have me thinking of a Negroni<sup>[4](#myfootnote4)</sup>
+An experiment was ran on the Udacity website. The null hypothesis is that no change was observed due to this experiment.  The alternative hypothesis is that a change was observed.  Gross and net conversion were chosen as evaluation metrics.  Each of these metrics are important for making a recommendation.  Each of these metrics are tested against the hypotheses above.  The Bonferroni correction would increase the confidence interval of each of metrics, decreasing the likelihood of measuring an effect size that doesn't exist.  This is a problem that occurs more likely when simultaneously running a family of hypothesis tests, any one of which could be deemed significant.  The Udacity experiment doesn't need this correction since all of the evaluation metrics are used for making a recommendation. 
+
+A practically and statistically significant effect was observed for gross conversion. A practically and statistically significant effect was not observed for net conversion.  The sign tests corroborated the effect size results. 
 
 ###Recommendation
-My recommendation is based on the evaluation metrics gross conversion and net conversion and not retention.  My recommendation could potentially change based on new inputs from external data or data from the metric retention.  I recommend that the experiment launch.  My decision is based on the following: 
+My recommendation is based on the evaluation metrics gross conversion and net conversion and not retention.  My recommendation could potentially change based on new inputs from external data or data from the metric retention.  I recommend that the experiment not launch.  My decision is based on the following: 
 
 + A decrease in enrollments per clicks was observed with the experiment.  
 + No definitive negative change was observed for net conversion or students who make the first payment per click.  
 
-The goal was to reduce the number of frustrated students and not reduce the number of students who pay.  If frustrated students are synonymous with gross conversion or those who enroll per click, then the experiment accomplished a practical and significant reduction.  If payments over clicks is synonymous with net conversion or students who pay per click, then the experiment accomplished no significant or practical change.  Net conversion experienced a decrease but not significant enough to merit rejection of the null.  The experiment met the high-level business objectives. 
+The goal was to reduce the number of frustrated students and not reduce the number of students who pay.  If frustrated students are synonymous with gross conversion or those who enroll per click, then the experiment accomplished a practical and significant reduction.  If payments over clicks is synonymous with net conversion or students who pay per click, then the experiment accomplished no significant or practical change.  Net conversion experienced a decrease but not significant enough to merit rejection of the null.  The experiment met the high-level business objectives, but an ambiguity exists about the loss of the number of students who pay.  The practically significant boundary is -0.0075 and the confidence interval contains that boundary.  The observed decrease may exist below or above the practically significant boundary.  The observed effect may have negative unsustainable consequences.    
 
 The evaluation metric retention didn't have enough statistical power to be assessed in this experiment.   Increasing alpha, decreasing beta, and increasing the practical significance would decrease the number of pageviews needed and but would produce less rigorous results that would be prone to detecting effects that do not exist.  The only way retention as defined in this experiment could be assessed is to increase the duration of the experiment.  Assessing retention could potentially give insight into whether or not the overall experience is better, which may be out of scope for this experiment due to duration requirements.  If the experience is better then students who are enrolled would make payments at a higher rate.        
 
@@ -113,7 +139,6 @@ To assess the number of frustrated students who cancel early in the course, the 
 The unit of diversion would be users-ids.  The definition of my metrics are above.  My reasoning for ratio one is to see whether students leave at a higher rate due to not committing 5 hours per week; my reasoning for ratio two is to see whether students leave at a higher rate due to duration requirements.  Depending on the results, a follow-up test would be to see whether perhaps the duration requirement of 14 days is enough.   
 
 ###References
-+ <a name="myfootnote1">1 </a>:  http://bit.ly/1VH3R3u
-+ <a name="myfootnote2">2 </a>:  http://www.stat.berkeley.edu/~mgoldman/Section0402.pdf
-+ <a name="myfootnote3">3 </a>:  http://www.utdallas.edu/~herve/Abdi-Bonferroni2007-pretty.pdf
-+ <a name="myfootnote4">4 </a>:  https://en.wikipedia.org/wiki/Negroni
+<a name="myfootnote1">1 </a>:  http://bit.ly/1VH3R3u
+<a name="myfootnote2">2 </a>:  http://www.stat.berkeley.edu/~mgoldman/Section0402.pdf
+<a name="myfootnote3">3 </a>:  http://www.utdallas.edu/~herve/Abdi-Bonferroni2007-pretty.pdf
