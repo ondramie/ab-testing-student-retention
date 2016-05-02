@@ -82,7 +82,8 @@ Number of Pageviews | Estimated Duration (Days)
 
 The sanity checks had these assumptions: (1) binomial distribution (p = 0.5, q = 0.5); and (2) central limit theorem Z-score  of 1.96.  The standard error was calculated: 
 
- ->![](se.png)<-
+ -> ![](se.png) <-
+ - > ![](se.png) < -
 
 Here, Ne and Nc are the number of samples in the experiment and control, respectively.  The observed values below are from the control group.  They are within the 95% confidence interval of an analytical estimate of 0.5.        
 
