@@ -4,7 +4,9 @@ This document discusses an A/B test experiment that ran on the Udacity website i
 
 The high-level business objective is to **reduce** the number of students who leave the free trial, while **not reducing** the number of students who continue to complete the certificate program.  The hypothesis tests are:
 
--> ![](hnaught.png) <-
+ <p align="center">
+ 	![](hnaught.png)
+</p>
 
 Pe stands for the probability of the experiment and Pc stands for the probability for the control. 
 
