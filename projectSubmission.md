@@ -87,9 +87,7 @@ The sanity checks had these assumptions: (1) binomial distribution (p = 0.5, q =
 
 $$ SE = \sqrt{\frac{p*q}{N_c+N_E}} $$  
 
-<img src="http://bit.ly/1NiHtLk" align="center" border="0" alt="$$ SE = \sqrt{\frac{p*q}{N_c+N_E}} $$ " width="216" height="80" />
-
-![img](http://bit.ly/1NiHtLk)
+![](se.jpg)
 
 The observed values below are from the control group.  They are within the 95% confidence interval of an analytical estimate of 0.5.        
 
