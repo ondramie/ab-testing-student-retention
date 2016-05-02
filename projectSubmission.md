@@ -6,6 +6,8 @@ The high-level business objective is to **reduce** the number of students who le
 
 ![](hnaught.png)
 
+Pe stands for the probability of the experiment and Pc stands for the probability for the control. 
+
 ###Metric Choice
 The logic flow of the experiment and control is below: 
 
@@ -80,11 +82,9 @@ Number of Pageviews | Estimated Duration (Days)
 
 The sanity checks had these assumptions: (1) binomial distribution (p = 0.5, q = 0.5); and (2) central limit theorem Z-score  of 1.96.  The standard error was calculated: 
 
-$$ SE = \sqrt{\frac{p*q}{N_c+N_E}} $$  
+ ![](se.png)
 
-![](se.png)
-
-The observed values below are from the control group.  They are within the 95% confidence interval of an analytical estimate of 0.5.        
+Here, Ne and Nc are the number of samples in the experiment and control, respectively.  The observed values below are from the control group.  They are within the 95% confidence interval of an analytical estimate of 0.5.        
 
 |Metric|Lower Bound |Upper Bound| Observed| Passes?
 :--- | :---: | :---: | :---: | :---: |
