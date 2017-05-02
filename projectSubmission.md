@@ -1,4 +1,4 @@
-##Experiment Design
+## Experiment Design
 ### Overview 
 This document discusses an A/B test experiment that ran on the Udacity website in which the user was asked whether she or he had enough time to commit 5 hours per week to coursework.  The hope is that users will understand the time commitment required before embarking on a free trial that lasts 14 days.  After 14 days, he or she will be charged as a student who is enrolled in the certificate program at $199/month. 
 
@@ -10,7 +10,7 @@ The high-level business objective is to **reduce** the number of students who le
 
 Pe stands for the probability of the experiment and Pc stands for the probability for the control. 
 
-###Metric Choice
+### Metric Choice
 The logic flow of the experiment and control is below: 
 
 ![](logicFlowTwo.png)
@@ -37,8 +37,7 @@ In order to launch the experiment, I am looking for a statistically significant 
 
 A decrease in enrollments per clicks by itself would tell you that the time commitment message is working, but it provides no information on whether students who click are more likely to make the first payment.  Likewise, no discernible change in payments per clicks would provide no information to whether the warning message is working.  Together they provide a better story. 
  
-##Measuring Standard Deviation
-
+## Measuring Standard Deviation
 The analytical estimations of variance for gross and net conversion will suffice since the unit of analysis and the unit of diversion are the same: a cookie -- whereas the analytical estimation of variance for retention will underestimate since the unit of analysis and diversion are not the same: a user-id and a cookie, respectively<sup>[1](#myfootnote1)</sup>.  Retention variability should be estimated empirically.  An empirical estimation of variance can be accomplished through A/A testing.  No A/A testing data was provided.  A coarse estimate based on available data was not advised.   Below is a table of the  analytical estimates.      
 
 |Metric|Analytical Standard Deviation| 
@@ -47,8 +46,8 @@ Gross Conversion | 0.0202 |
 Retention | 0.0549 |
 Net Conversion | 0.0156 |
 
-##Sizing
-###Number of Samples vs. Power
+## Sizing
+### Number of Samples vs. Power
 The Bonferroni correction is used when running multiple tests simultaneously; it is used to reduce the likelihood of a false positive from a family of tests<sup>[2](#myfootnote2)</sup>.  I didn't apply the Bonferroni correction to the significance level (alpha = 0.05).  
 
 My reasoning is based on my business objectives.  The Bonferroni does not assume independence<sup>[3](#myfootnote3)</sup>.  Gross and net conversion are not independent based on a one-way ANOVA (R-squared = 0.43) and a Pearson's Chi-Square Test (p-value = 0.236).   My business objectives require that both of my hypotheses have significance, not one of them. 
@@ -63,7 +62,7 @@ Net Conversion | 685325 | 875400 |
 
 The table above displays the number of pageviews needed in order to power the experiment appropriately.  The evaluation metric retention was dropped since it would lead to a number of pageviews that would not support a reasonable duration, assuming no change to the practical significance levels, alpha, or beta.    
 
-##Duration vs. Exposure
+## Duration vs. Exposure
 The experiment lasted 37 days,  spanning from 10/11 to 11/26.  Since the free trial lasts 14 days, the available data are reduced to 23 days, spanning from 10/11 to 11/2.  The experiment was ran at 100%.  
 
 No information was given about other Udacity experiments.  No information was given about the required business rhythm turnaround.  The assumptions were: 
@@ -79,8 +78,8 @@ Number of Pageviews | Estimated Duration (Days)
 |685325 |  18 |
 
 
-##Experiment Analysis
-###Sanity Checks
+## Experiment Analysis
+### Sanity Checks
 
 The sanity checks had these assumptions: (1) binomial distribution (p = 0.5, q = 0.5); and (2) central limit theorem Z-score  of 1.96.  The standard error was calculated: 
 
@@ -96,8 +95,8 @@ Number of Cookies| 0.4988| 0.5012 | 0.5006 | Y
 Number of Clicks | 0.4959| 0.5041| 0.5005 |Y
 Click-Through Probability | 0.0812| 0.0830 | 0.0822|Y
 
-##Result Analysis
-###Effect Size Tests
+## Result Analysis
+### Effect Size Tests
 Metric|Lower Bound |Upper Bound| Statistical Significance Boundary | Statistically Significant?| Practical Significance Boundary| Practically Significant?
 :--- | :---: | :---: | :---: | :---: | :-: | :--:
 Gross Conversion| -0.0291| -0.0120 | 0 |Y| +/- 0.01 | Y
@@ -107,7 +106,7 @@ Gross Conversion is statistically significant because the confidence interval [-
 
 Net Conversion is **not** statistically significant because the the confidence interval [-0.0116, 0.0019] includes zero.  Net Conversion is not practically significant since net conversion is not statistically significant.  Net Conversion is **not** practically significant because the confidence interval [-0.0116, 0.0019] **does** include the practical significance boundary -0.0075.  The number of payments per click has not definitively changed from the experiment and the control. 
 
-###Sign Tests
+### Sign Tests
 The sign test is used to measure the likelihood of consistent differences between a pair of observations.  It assumes the probability distribution of the binomial (success/failure).  It is used here to corroborate the findings of whether a statistical significant difference was observed.  For gross conversion, four days out of twenty-three days had an experiment greater than the control.  For net conversion, ten days out of twenty-three days had an experiment greater than the control.  Assuming an equal likelihood of success or failure (50%) and an alpha of 0.05, the p-values for gross and net conversion are below: 
 
 Metric| p-value| Statistically Significant?|
@@ -117,12 +116,12 @@ Net Conversion | 0.6776| N
 
 A  p-value of 0.0026 is the likelihood of observing four or fewer success or days in which the difference between the experiment was greater than the control.  This is a low likelihood that this occurred by chance.  On the other hand of the spectrum, a  p-value of 0.6776 is the likelihood of observing 10 or fewer success or days in which the difference between the experiment was greater than the control.  This is highly likely and chance cannot be ruled out.  These results corroborate with the findings above in the effect size section.
 
-###Summary
+### Summary
 An experiment was ran on the Udacity website. The null hypothesis is that no change was observed due to this experiment.  The alternative hypothesis is that a change was observed.  Gross and net conversion were chosen as evaluation metrics.  Each of these metrics are important for making a recommendation.  Each of these metrics are tested against the hypotheses above.  The Bonferroni correction would increase the confidence interval of each of metrics, decreasing the likelihood of measuring an effect size that doesn't exist.  This is a problem that occurs more likely when simultaneously running a family of hypothesis tests, any one of which could be deemed significant.  The Udacity experiment doesn't need this correction since all of the evaluation metrics are used for making a recommendation. 
 
 A practically and statistically significant effect was observed for gross conversion. A practically and statistically significant effect was not observed for net conversion.  The sign tests corroborated the effect size results. 
 
-###Recommendation
+### Recommendation
 My recommendation is based on the evaluation metrics gross conversion and net conversion and not retention.  My recommendation could potentially change based on new inputs from external data or data from the metric retention.  I recommend that the experiment not launch.  My decision is based on the following: 
 
 + A decrease in enrollments per clicks was observed with the experiment.  
@@ -132,14 +131,14 @@ The goal was to reduce the number of frustrated students and not reduce the numb
 
 The evaluation metric retention didn't have enough statistical power to be assessed in this experiment.   Increasing alpha, decreasing beta, and increasing the practical significance would decrease the number of pageviews needed and but would produce less rigorous results that would be prone to detecting effects that do not exist.  The only way retention as defined in this experiment could be assessed is to increase the duration of the experiment.  Assessing retention could potentially give insight into whether or not the overall experience is better, which may be out of scope for this experiment due to duration requirements.  If the experience is better then students who are enrolled would make payments at a higher rate.        
 
-###Follow-Up Experiment
+### Follow-Up Experiment
 To assess the number of frustrated students who cancel early in the course, the experiment that I would try is to warn the students who have enrolled and have not exceed 5hrs of log-in time per week, whether they wanted to continue with the free trial, and then again re-warn the student on day 13 of the trial whether they wanted to continue with the free trial which ends the next day.  My hypothesis is that the those students who have not exceeded 5 hours/week on the free trial will most likely leave the trial decreasing their classification as frustrated.  Similarly, my hypothesis is that those who are close to the end of their trial will have made a decision as to continue with signing up for certificate program or not on day 13.  Thus, a frustrated student will not be charged.  The logic flow that I am considering is below: 
 
 ![](logicFlowFollowUp.png)
 
 The unit of diversion would be users-ids.  The definition of my metrics are above.  My reasoning for ratio one is to see whether students leave at a higher rate due to not committing 5 hours per week; my reasoning for ratio two is to see whether students leave at a higher rate due to duration requirements.  Depending on the results, a follow-up test would be to see whether perhaps the duration requirement of 14 days is enough.   
 
-###References
+### References
 
 <a name="myfootnote1">1 </a>:  http://bit.ly/1VH3R3u
 
