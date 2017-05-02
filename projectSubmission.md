@@ -97,6 +97,7 @@ Click-Through Probability | 0.0812| 0.0830 | 0.0822|Y
 
 ## Result Analysis
 ### Effect Size Tests
+
 Metric|Lower Bound |Upper Bound| Statistical Significance Boundary | Statistically Significant?| Practical Significance Boundary| Practically Significant?
 :--- | :---: | :---: | :---: | :---: | :-: | :--:
 Gross Conversion| -0.0291| -0.0120 | 0 |Y| +/- 0.01 | Y
