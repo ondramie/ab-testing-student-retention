@@ -4,9 +4,7 @@ This document discusses an A/B test experiment that ran on the Udacity website i
 
 The high-level business objective is to **reduce** the number of students who leave the free trial, while **not reducing** the number of students who continue to complete the certificate program.  The hypothesis tests are:
 
- <p align="center">
- 	![](hnaught.png)
-</p>
+![](hnaught.png)
 
 Pe stands for the probability of the experiment and Pc stands for the probability for the control. 
 
@@ -83,9 +81,7 @@ Number of Pageviews | Estimated Duration (Days)
 
 The sanity checks had these assumptions: (1) binomial distribution (p = 0.5, q = 0.5); and (2) central limit theorem Z-score  of 1.96.  The standard error was calculated: 
 
- <p align="center">
- 	![](se.png)
-</p>
+![](se.png)
 
 Here, Ne and Nc are the number of samples in the experiment and control, respectively.  The observed values below are from the control group.  They are within the 95% confidence interval of an analytical estimate of 0.5.        
 
