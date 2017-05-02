@@ -74,7 +74,7 @@ No information was given about other Udacity experiments.  No information was gi
 The risk to divert traffic is minimal per first principles.  The users will not be exposed to physical, psychological and emotional, social, and economic concerns.  The table below displays the estimated duration based on the required number or pageviews. 
 
 Number of Pageviews | Estimated Duration (Days)  
-:--- | :---: | :---:
+:--- | :---: 
 |685325 |  18 
 
 
