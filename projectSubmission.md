@@ -41,7 +41,7 @@ A decrease in enrollments per clicks by itself would tell you that the time comm
 The analytical estimations of variance for gross and net conversion will suffice since the unit of analysis and the unit of diversion are the same: a cookie -- whereas the analytical estimation of variance for retention will underestimate since the unit of analysis and diversion are not the same: a user-id and a cookie, respectively<sup>[1](#myfootnote1)</sup>.  Retention variability should be estimated empirically.  An empirical estimation of variance can be accomplished through A/A testing.  No A/A testing data was provided.  A coarse estimate based on available data was not advised.   Below is a table of the  analytical estimates.      
 
 |Metric|Analytical Standard Deviation| 
-:--- | :---: | :---: | :--: |
+:--- | :---: |
 Gross Conversion | 0.0202 |
 Retention | 0.0549 |
 Net Conversion | 0.0156 |
@@ -55,10 +55,10 @@ My reasoning is based on my business objectives.  The Bonferroni does not assume
 If I were to applying the Bonferroni, I would decrease the significance level of each evaluation metric to ~0.05/2 = 0.025 or ~0.05/3, depending on which evaluation metrics (2 or 3) I ultimately ended up choosing.  For completion purposes, the numbers of pageviews required with the Bonferroni are below in the table.  Increasing the significance threshold of each metric would decrease the number of false positives (type I) and increase the number of false negatives (type II).    
  
 Metric| Number of Pageviews (alpha = 0.05) | Number of Pageviews (Bonferroni)  
-:--- | :---: | :---: | 
-Gross Conversion | 645875 | 825350 |
-Retention | 4741212 | 6062182|
-Net Conversion | 685325 | 875400 |
+:--- | :---: | :---:  
+Gross Conversion | 645875 | 825350 
+Retention | 4741212 | 6062182
+Net Conversion | 685325 | 875400 
 
 The table above displays the number of pageviews needed in order to power the experiment appropriately.  The evaluation metric retention was dropped since it would lead to a number of pageviews that would not support a reasonable duration, assuming no change to the practical significance levels, alpha, or beta.    
 
@@ -74,8 +74,8 @@ No information was given about other Udacity experiments.  No information was gi
 The risk to divert traffic is minimal per first principles.  The users will not be exposed to physical, psychological and emotional, social, and economic concerns.  The table below displays the estimated duration based on the required number or pageviews. 
 
 Number of Pageviews | Estimated Duration (Days)  
-:--- | :---: | :---: | 
-|685325 |  18 |
+:--- | :---: | :---:
+|685325 |  18 
 
 
 ## Experiment Analysis
@@ -90,7 +90,7 @@ The sanity checks had these assumptions: (1) binomial distribution (p = 0.5, q =
 Here, Ne and Nc are the number of samples in the experiment and control, respectively.  The observed values below are from the control group.  They are within the 95% confidence interval of an analytical estimate of 0.5.        
 
 |Metric|Lower Bound |Upper Bound| Observed| Passes?
-:--- | :---: | :---: | :---: | :---: |
+:--- | :---: | :---: | :---: | :---: 
 Number of Cookies| 0.4988| 0.5012 | 0.5006 | Y
 Number of Clicks | 0.4959| 0.5041| 0.5005 |Y
 Click-Through Probability | 0.0812| 0.0830 | 0.0822|Y
