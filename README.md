@@ -6,7 +6,7 @@ The high-level business objective is to **reduce** the number of students who le
 
 ![](hnaught.png)
 
-$P_e$ stands for the probability of the experiment and $P_c$ stands for the probability for the control. 
+P<sub>e</sub> stands for the probability of the experiment and P<sub>c</sub> stands for the probability for the control. 
 
 ### Metric Choice
 The logic flow of the experiment and control is below: 
